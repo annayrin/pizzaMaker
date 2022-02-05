@@ -6,13 +6,16 @@ import com.example.pizzamaker.model.Table;
 import java.util.List;
 
 public interface ProductTypeService {
+
     ProductType read(int id);
 
     List<ProductType> readAll();
 
+    ProductType read(String name);
+
     void create(ProductType productType);
 
-    ProductType update (int id, ProductType productType);
+    ProductType update(int id, ProductType productType);
 
-    void delete (int id);
+    void delete(int id);
 }
