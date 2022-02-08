@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+
 public class IngredientRepository {
 
     public Ingredient read(int id) {
@@ -42,7 +43,6 @@ public class IngredientRepository {
         return ingredient;
     }
 
-
     public Ingredient read(String name) {
 
         Connection connection = SQLConnector.getConnection();
@@ -56,7 +56,7 @@ public class IngredientRepository {
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
-        Ingredient ingredient=null;
+        Ingredient ingredient = null;
         try{
             while (resultSet.next()){
                 ingredient=mapper(resultSet);
@@ -100,25 +100,19 @@ public class IngredientRepository {
         return data;
     }
 
-
-
     public void create(Ingredient ingredient) {
         Connection connection = SQLConnector.getConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO `ingredient` values (0,?)");
             preparedStatement.setString(1, ingredient.getName());
-
-
             int i = preparedStatement.executeUpdate();
-
             preparedStatement.close();
             connection.close();
 
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
-
     }
 
     public Ingredient update(Ingredient ingredient) {
@@ -128,9 +122,7 @@ public class IngredientRepository {
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE `ingredient` SET name = ? WHERE id = ?");
             preparedStatement.setString(1,ingredient.getName());
             preparedStatement.setInt(2,ingredient.getId());
-
             int i = preparedStatement.executeUpdate();
-
             preparedStatement.close();
 
         } catch (SQLException exception) {
@@ -142,7 +134,6 @@ public class IngredientRepository {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
-
         return ingredient;
     }
 

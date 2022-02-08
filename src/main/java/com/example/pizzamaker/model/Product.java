@@ -1,13 +1,14 @@
 package com.example.pizzamaker.model;
+
 import lombok.*;
-import java.util.List;
-import java.util.Objects;
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Getter
 @Setter
-@EqualsAndHashCode
 @ToString
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Product {
 
     private int id;
@@ -23,4 +24,3 @@ public class Product {
     private String currency;
 
 }
-

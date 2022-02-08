@@ -24,7 +24,7 @@ public class TableRepository {
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
-        Table table=null;
+        Table table = null;
         try{
             while (resultSet.next()){
                 table=mapper(resultSet);
@@ -46,8 +46,8 @@ public class TableRepository {
     public List<Table> readAll() {
 
         Connection connection = SQLConnector.getConnection();
-        ResultSet resultSet = null;
         PreparedStatement pstmt = null;
+        ResultSet resultSet = null;
 
         try {
             pstmt = connection.prepareStatement("SELECT * from `table`");
@@ -60,8 +60,8 @@ public class TableRepository {
 
 
         try {
-            resultSet.close();
             pstmt.close();
+            resultSet.close();
             connection.close();
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();

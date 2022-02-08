@@ -2,7 +2,6 @@ package com.example.pizzamaker.service.impl;
 
 import com.example.pizzamaker.model.Ingredient;
 import com.example.pizzamaker.model.Product;
-import com.example.pizzamaker.model.Table;
 import com.example.pizzamaker.model.commons.ProductToIngredient;
 import com.example.pizzamaker.model.dto.ProductDto;
 import com.example.pizzamaker.repository.ProductRepository;
@@ -13,11 +12,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class ProductServiceImpl implements ProductService {
 
     ProductRepository productRepository = new ProductRepository();
-
-    ProductToIngredientRepository productToIngredientRepository = new ProductToIngredientRepository();
+    ProductToIngredientRepository productToIngredientRepository =
+            new ProductToIngredientRepository();
 
 
     @Override
@@ -49,7 +49,8 @@ public class ProductServiceImpl implements ProductService {
         productDto.setIngredients(new LinkedList<>());
 
         fromDb.forEach(item -> {
-            Ingredient ingredient = new Ingredient(item.getIngredientId(), item.getIngredientName());
+            Ingredient ingredient = new Ingredient(item.getIngredientId(),
+                    item.getIngredientName());
             productDto.getIngredients().add(ingredient);
         });
 
@@ -92,7 +93,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> readAllByProductType(int productTypeId) {
-        return readAll().stream().filter(item -> item.getProductTypeId() == productTypeId).collect(Collectors.toList());
+        return readAll().stream().filter(item -> item.getProductTypeId()
+                == productTypeId).collect(Collectors.toList());
     }
 
     @Override
@@ -106,6 +108,7 @@ public class ProductServiceImpl implements ProductService {
         productRepository.create(product);
 
         productDto.getIngredients().forEach(item -> {
+
             ProductToIngredient productToIngredient = new ProductToIngredient();
 
             productToIngredient.setIngredientId(item.getId());
@@ -134,7 +137,8 @@ public class ProductServiceImpl implements ProductService {
         if (productToIngredientRepository.readByProduct(id) != null) {
             List<Ingredient> ingredients = productDto.getIngredients();
             ingredients.forEach(item -> {
-                ProductToIngredient productToIngredient = new ProductToIngredient(0, item.getId(), productDto.getId());
+                ProductToIngredient productToIngredient =
+                        new ProductToIngredient(0, item.getId(), productDto.getId());
                 productToIngredientRepository.update(productToIngredient);
             });
         }

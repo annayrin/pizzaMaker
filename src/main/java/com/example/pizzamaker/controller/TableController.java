@@ -1,6 +1,5 @@
 package com.example.pizzamaker.controller;
 
-
 import com.example.pizzamaker.model.Table;
 import com.example.pizzamaker.service.TableService;
 import com.example.pizzamaker.service.impl.TableServiceImpl;
@@ -14,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
+
 public class TableController extends HttpServlet {
 
     private final TableService tableService = new TableServiceImpl();

@@ -1,7 +1,6 @@
 package com.example.pizzamaker.service.impl;
 
 import com.example.pizzamaker.model.ProductType;
-import com.example.pizzamaker.model.Table;
 import com.example.pizzamaker.repository.ProductTypeRepository;
 import com.example.pizzamaker.service.ProductTypeService;
 

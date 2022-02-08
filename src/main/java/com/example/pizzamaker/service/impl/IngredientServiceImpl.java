@@ -2,22 +2,17 @@ package com.example.pizzamaker.service.impl;
 
 import com.example.pizzamaker.model.Ingredient;
 import com.example.pizzamaker.repository.IngredientRepository;
-import com.example.pizzamaker.repository.ProductTypeRepository;
 import com.example.pizzamaker.service.IngredientService;
 
 import java.util.List;
 
-
 public class IngredientServiceImpl implements IngredientService {
+
     private final IngredientRepository ingredientRepository = new IngredientRepository();
+
     @Override
     public Ingredient read(int id) {
         return ingredientRepository.read(id);
-    }
-
-    @Override
-    public List<Ingredient> readAll() {
-        return ingredientRepository.readAll();
     }
 
     @Override
@@ -26,8 +21,8 @@ public class IngredientServiceImpl implements IngredientService {
     }
 
     @Override
-    public List<Ingredient> readByEditable(boolean isEditable) {
-        return null;
+    public List<Ingredient> readAll() {
+        return ingredientRepository.readAll();
     }
 
     @Override

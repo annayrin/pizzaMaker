@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +18,8 @@ public class ProductRepository {
         List<ProductDto> data = new LinkedList<>();
         Connection connection = SQLConnector.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("select product_type_id,\n" +
+            PreparedStatement preparedStatement = connection.prepareStatement
+                    ("select product_type_id,\n" +
                     "       price,\n" +
                     "       image_path,\n" +
                     "       currency,\n" +
@@ -31,7 +33,7 @@ public class ProductRepository {
                     "         inner join ingredient\n" +
                     "                    on product_to_ingredient.ingredient_id = ingredient.id\n" +
                     "where product_to_ingredient.product_id = ?");
-           // preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             data.addAll(listMapper(resultSet));
@@ -49,7 +51,8 @@ public class ProductRepository {
 
         Connection connection = SQLConnector.getConnection();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("select product_type_id,\n" +
+            PreparedStatement preparedStatement =
+                    connection.prepareStatement("select product_type_id,\n" +
                     "       price,\n" +
                     "       image_path,\n" +
                     "       currency,\n" +
@@ -149,5 +152,4 @@ public class ProductRepository {
 
         return pDto;
     }
-
 }

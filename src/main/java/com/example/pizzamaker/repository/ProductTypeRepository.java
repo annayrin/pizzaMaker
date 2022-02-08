@@ -1,7 +1,6 @@
 package com.example.pizzamaker.repository;
 
 import com.example.pizzamaker.model.ProductType;
-import com.example.pizzamaker.model.Table;
 import com.example.pizzamaker.util.SQLConnector;
 
 import java.sql.Connection;
@@ -12,7 +11,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductTypeRepository {
-
 
     public ProductType read(int id) {
         Connection connection = SQLConnector.getConnection();
@@ -101,6 +99,7 @@ public class ProductTypeRepository {
     }
 
     public void create(ProductType productType) {
+
         Connection connection = SQLConnector.getConnection();
 
         try {

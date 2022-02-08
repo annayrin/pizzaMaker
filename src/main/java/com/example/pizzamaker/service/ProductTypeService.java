@@ -1,7 +1,6 @@
 package com.example.pizzamaker.service;
 
 import com.example.pizzamaker.model.ProductType;
-import com.example.pizzamaker.model.Table;
 
 import java.util.List;
 

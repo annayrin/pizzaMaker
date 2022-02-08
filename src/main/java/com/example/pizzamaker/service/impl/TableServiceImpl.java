@@ -11,6 +11,7 @@ public class TableServiceImpl implements TableService {
 
     private final TableRepository tableRepository = new TableRepository();
 
+
     @Override
     public Table read(int id) {
         return tableRepository.read(id);

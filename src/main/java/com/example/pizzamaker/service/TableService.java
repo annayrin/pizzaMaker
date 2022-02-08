@@ -21,4 +21,3 @@ public interface TableService {
     void delete(int id);
 
 }
-
