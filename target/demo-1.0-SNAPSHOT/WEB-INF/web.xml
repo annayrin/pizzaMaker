@@ -41,7 +41,7 @@
 
     <servlet-mapping>
         <servlet-name>productTypeController</servlet-name>
-        <url-pattern>/product-type</url-pattern>
+        <url-pattern>/productType</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>orderController</servlet-name>

@@ -43,7 +43,7 @@ public class ProductTypeController extends HttpServlet {
                 data.add(productTypeService.read(name));
                 break;
             default:
-                resp.sendError(404, "provided URL not found for analyse");
+                resp.sendError(404, "provided URL not found");
                 break;
         }
 

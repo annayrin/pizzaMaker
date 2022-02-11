@@ -44,7 +44,7 @@ public class IngredientController extends HttpServlet {
                 }
                 break;
             default:
-                resp.sendError(404, "hargelis sxalvel es");
+                resp.sendError(404, "Error url not found");
                 break;
         }
         resp.getWriter().println(gson.toJson(data));
@@ -67,7 +67,7 @@ public class IngredientController extends HttpServlet {
 
         Ingredient update = ingredientService.update(ingr.getId(),ingr);
         if (update==null){
-            resp.sendError(400,"id not found for update object");
+            resp.sendError(400,"id is not found");
             return;
         }
         resp.getWriter().println(gson.toJson(update));
