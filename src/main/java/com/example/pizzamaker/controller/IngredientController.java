@@ -65,9 +65,9 @@ public class IngredientController extends HttpServlet {
         Ingredient ingr = mapper(req);
         AccessControlOriginFilter.setAccessControlHeaders(resp);
 
-        Ingredient update = ingredientService.update(ingr.getId(),ingr);
-        if (update==null){
-            resp.sendError(400,"id is not found");
+        Ingredient update = ingredientService.update(ingr.getId(), ingr);
+        if (update == null) {
+            resp.sendError(400, "id is not found");
             return;
         }
         resp.getWriter().println(gson.toJson(update));
@@ -78,7 +78,7 @@ public class IngredientController extends HttpServlet {
 
         AccessControlOriginFilter.setAccessControlHeaders(resp);
 
-        int id= Integer.parseInt(req.getParameter("id"));
+        int id = Integer.parseInt(req.getParameter("id"));
         ingredientService.delete(id);
     }
 

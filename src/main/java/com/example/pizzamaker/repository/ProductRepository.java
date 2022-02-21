@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,19 +19,19 @@ public class ProductRepository {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement
                     ("select product_type_id,\n" +
-                    "       price,\n" +
-                    "       image_path,\n" +
-                    "       currency,\n" +
-                    "       product.id      as product_id,\n" +
-                    "       product.name    as product_name,\n" +
-                    "       ingredient.id   as ingredient_id,\n" +
-                    "       ingredient.name as ingredient_name\n" +
-                    "from product\n" +
-                    "         inner join product_to_ingredient\n" +
-                    "                    on product.id = product_to_ingredient.product_id\n" +
-                    "         inner join ingredient\n" +
-                    "                    on product_to_ingredient.ingredient_id = ingredient.id\n" +
-                    "where product_to_ingredient.product_id = ?");
+                            "       price,\n" +
+                            "       image_path,\n" +
+                            "       currency,\n" +
+                            "       product.id      as product_id,\n" +
+                            "       product.name    as product_name,\n" +
+                            "       ingredient.id   as ingredient_id,\n" +
+                            "       ingredient.name as ingredient_name\n" +
+                            "from product\n" +
+                            "         inner join product_to_ingredient\n" +
+                            "                    on product.id = product_to_ingredient.product_id\n" +
+                            "         inner join ingredient\n" +
+                            "                    on product_to_ingredient.ingredient_id = ingredient.id\n" +
+                            "where product_to_ingredient.product_id = ?");
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -53,18 +52,18 @@ public class ProductRepository {
         try {
             PreparedStatement preparedStatement =
                     connection.prepareStatement("select product_type_id,\n" +
-                    "       price,\n" +
-                    "       image_path,\n" +
-                    "       currency,\n" +
-                    "       product.id      as product_id,\n" +
-                    "       product.name    as product_name,\n" +
-                    "       ingredient.id   as ingredient_id,\n" +
-                    "       ingredient.name as ingredient_name\n" +
-                    "from product\n" +
-                    "         inner join product_to_ingredient\n" +
-                    "                    on product.id = product_to_ingredient.product_id\n" +
-                    "         inner join ingredient\n" +
-                    "                    on product_to_ingredient.ingredient_id = ingredient.id\n");
+                            "       price,\n" +
+                            "       image_path,\n" +
+                            "       currency,\n" +
+                            "       product.id      as product_id,\n" +
+                            "       product.name    as product_name,\n" +
+                            "       ingredient.id   as ingredient_id,\n" +
+                            "       ingredient.name as ingredient_name\n" +
+                            "from product\n" +
+                            "         inner join product_to_ingredient\n" +
+                            "                    on product.id = product_to_ingredient.product_id\n" +
+                            "         inner join ingredient\n" +
+                            "                    on product_to_ingredient.ingredient_id = ingredient.id\n");
             ResultSet resultSet = preparedStatement.executeQuery();
             data.addAll(listMapper(resultSet));
 

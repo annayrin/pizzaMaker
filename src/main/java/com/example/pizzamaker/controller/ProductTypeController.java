@@ -17,10 +17,10 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class ProductTypeController extends HttpServlet {
+    private static final Random random = new Random();
     private final ProductTypeService productTypeService = new ProductTypeServiceImpl();
-    private List<ProductType> list = new LinkedList<>();
-    private static Random random = new Random();
-    private Gson gson = new Gson();
+    private final List<ProductType> list = new LinkedList<>();
+    private final Gson gson = new Gson();
 
 
     @Override
@@ -70,14 +70,14 @@ public class ProductTypeController extends HttpServlet {
 
         int id = Integer.parseInt(req.getParameter("id"));
 
-        for (int i = 0; i < list.size(); i++){
-            if(list.get(i).getId() == id){
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == id) {
                 pdtype = list.get(i);
                 break;
             }
         }
 
-        if(pdtype == null){
+        if (pdtype == null) {
             resp.sendError(400, "there is no table with mentioned id");
             return;
         }

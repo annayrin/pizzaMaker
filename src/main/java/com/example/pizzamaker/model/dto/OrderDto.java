@@ -15,13 +15,13 @@ import java.util.List;
 
 public class OrderDto {
 
-        private int tableId;
+    private int tableId;
 
-        private boolean inProcess;
+    private boolean inProcess;
 
-        private int quantity;
+    private int quantity;
 
-        private float amount;
+    private float amount;
 
-        private List<Product> products;
+    private List<Product> products;
 }
